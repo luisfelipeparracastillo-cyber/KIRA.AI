@@ -4,14 +4,12 @@ import Onboarding from './components/Onboarding';
 import DashboardView from './components/DashboardView';
 import WalkView from './components/WalkView';
 import BreedLibraryView from './components/BreedLibraryView';
-import RagConsultantView from './components/RagConsultantView';
 import HydrationCenter from './components/HydrationCenter';
 import { 
   Home, 
   BookOpen, 
   Compass, 
   GlassWater, 
-  MessageCircleQuestion, 
   LogOut, 
   Droplet,
   Flame,
@@ -19,8 +17,8 @@ import {
 } from 'lucide-react';
 
 export default function App() {
-  // Navigation: 'dashboard' | 'library' | 'walk' | 'rag' | 'hydration'
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'library' | 'walk' | 'rag' | 'hydration'>('dashboard');
+  // Navigation: 'dashboard' | 'library' | 'walk' | 'hydration'
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'library' | 'walk' | 'hydration'>('dashboard');
   
   // Persistent State load
   const [profile, setProfile] = useState<DogProfile | null>(null);
@@ -181,7 +179,6 @@ export default function App() {
                   { id: 'dashboard', label: 'Mi Panel (Panel)', icon: Home },
                   { id: 'walk', label: 'Caminata Activa', icon: Compass },
                   { id: 'library', label: 'Biblioteca de Razas', icon: BookOpen },
-                  { id: 'rag', label: 'Bienestar & RAG IA', icon: MessageCircleQuestion },
                   { id: 'hydration', label: 'Remedio Hidratación', icon: GlassWater },
                 ].map((tab) => {
                   const IconComp = tab.icon;
@@ -258,10 +255,6 @@ export default function App() {
               <BreedLibraryView />
             )}
 
-            {activeTab === 'rag' && (
-              <RagConsultantView />
-            )}
-
             {activeTab === 'hydration' && (
               <HydrationCenter 
                 loggedMl={loggedMl} 
@@ -276,7 +269,6 @@ export default function App() {
               { id: 'dashboard', label: 'Panel', icon: Home },
               { id: 'walk', label: 'Paseo', icon: Compass },
               { id: 'library', label: 'Razas', icon: BookOpen },
-              { id: 'rag', label: 'RAG IA', icon: MessageCircleQuestion },
               { id: 'hydration', label: 'Agua', icon: GlassWater },
             ].map((tab) => {
               const IconComp = tab.icon;

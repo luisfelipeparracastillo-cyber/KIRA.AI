@@ -1,6 +1,6 @@
 {
   "name": "KIRA.AI",
-  "description": "Plataforma de ciencia de comportamiento y entrenamiento canino con asistente virtual de caminata en tiempo real, mapas de ruta interactivos por GPS, recordatorios de hidratación y RAG de consulta de bienestar.",
+  "description": "Plataforma de ciencia de comportamiento y entrenamiento canino con asistente virtual de caminata en tiempo real, mapas de ruta interactivos por GPS y recordatorios de hidratación.",
   "requestFramePermissions": ["geolocation"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
