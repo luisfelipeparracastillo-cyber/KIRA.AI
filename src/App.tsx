@@ -5,6 +5,7 @@ import DashboardView from './components/DashboardView';
 import WalkView from './components/WalkView';
 import BreedLibraryView from './components/BreedLibraryView';
 import HydrationCenter from './components/HydrationCenter';
+import WellnessChatbotView from './components/WellnessChatbotView';
 import { 
   Home, 
   BookOpen, 
@@ -13,12 +14,13 @@ import {
   LogOut, 
   Droplet,
   Flame,
-  Award
+  Award,
+  HeartPulse
 } from 'lucide-react';
 
 export default function App() {
-  // Navigation: 'dashboard' | 'library' | 'walk' | 'hydration'
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'library' | 'walk' | 'hydration'>('dashboard');
+  // Navigation: 'dashboard' | 'library' | 'walk' | 'hydration' | 'chatbot'
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'library' | 'walk' | 'hydration' | 'chatbot'>('dashboard');
   
   // Persistent State load
   const [profile, setProfile] = useState<DogProfile | null>(null);
@@ -180,6 +182,7 @@ export default function App() {
                   { id: 'walk', label: 'Caminata Activa', icon: Compass },
                   { id: 'library', label: 'Biblioteca de Razas', icon: BookOpen },
                   { id: 'hydration', label: 'Remedio Hidratación', icon: GlassWater },
+                  { id: 'chatbot', label: 'Bienestar IA', icon: HeartPulse },
                 ].map((tab) => {
                   const IconComp = tab.icon;
                   const isActive = activeTab === tab.id;
@@ -261,6 +264,10 @@ export default function App() {
                 onLogWater={handleLogWater}
               />
             )}
+
+            {activeTab === 'chatbot' && (
+              <WellnessChatbotView />
+            )}
           </main>
 
           {/* BOTTOM NAVIGATION: Mobile Tab Bar */}
@@ -269,6 +276,7 @@ export default function App() {
               { id: 'dashboard', label: 'Panel', icon: Home },
               { id: 'walk', label: 'Paseo', icon: Compass },
               { id: 'library', label: 'Razas', icon: BookOpen },
+              { id: 'chatbot', label: 'Bienestar', icon: HeartPulse },
               { id: 'hydration', label: 'Agua', icon: GlassWater },
             ].map((tab) => {
               const IconComp = tab.icon;
